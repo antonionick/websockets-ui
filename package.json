@@ -1,27 +1,25 @@
 {
-    "name": "ws_task",
-    "version": "1.0.0",
-    "description": "Template for the WebSocket remote control task",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "start": "node ./index.js",
-        "start:dev": "nodemon ./index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Andrei Auchynnikau",
-    "keywords": [],
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "20.11.17",
-        "@typescript-eslint/eslint-plugin": "7.0.1",
-        "@typescript-eslint/parser": "7.0.1",
-        "eslint": "8.56.0",
-        "eslint-config-prettier": "9.1.0",
-        "prettier": "3.2.5",
-        "typescript": "5.3.3"
-    },
-    "dependencies": {
-        "ws": "8.8.0"
-    }
+  "name": "ws_task",
+  "version": "1.0.0",
+  "description": "Template for the WebSocket remote control task",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "author": "Andrei Auchynnikau",
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "20.11.17",
+    "@typescript-eslint/eslint-plugin": "7.0.1",
+    "@typescript-eslint/parser": "7.0.1",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.2.5",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "ws": "8.16.0"
+  }
 }
