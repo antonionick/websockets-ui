@@ -6,6 +6,9 @@ export const playersDatabase = {
   doesPlayerExist(name: string): boolean {
     return !!playersStorage.find((player) => player.name === name);
   },
+  getPlayerIndex(name: string): number {
+    return playersStorage.findIndex((player) => player.name === name);
+  },
   addPlayer(player: IPlayerModel): number {
     playersStorage.push(player);
 

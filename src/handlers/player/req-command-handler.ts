@@ -1,7 +1,6 @@
 import { WebSocket } from 'ws';
-import { playersDatabase } from '../db/players.db.js';
-import { TCommandHandler } from '../models/command-handler.model.js';
-import { roomWSControllerFabric } from '../controllers/room-ws-controller.js';
+import { playersDatabase } from '../../db/players.db.js';
+import { roomWSControllerFabric } from '../../controllers/room-ws-controller.js';
 
 interface IReqData {
   name: string;
@@ -20,7 +19,7 @@ interface IReqErrorData {
 
 export const REQ_COMMAND_TYPE = 'reg';
 
-export const reqCommandHandler: TCommandHandler = (
+export const reqCommandHandler = (
   webSocket: WebSocket,
   message: string,
 ): string => {

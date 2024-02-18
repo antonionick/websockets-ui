@@ -1,6 +1,6 @@
 import { WebSocket, RawData } from 'ws';
 import { IWSMessage } from '../models/controller.model.js';
-import { REQ_COMMAND_TYPE, reqCommandHandler } from '../handlers/req-command-handler.js';
+import { REQ_COMMAND_TYPE, reqCommandHandler } from '../handlers/player/req-command-handler.js';
 
 export function playerWSController(this: WebSocket, rawData: RawData): void {
   const message: IWSMessage = JSON.parse(rawData.toString());
