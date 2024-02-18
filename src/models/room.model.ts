@@ -1,5 +1,5 @@
 export interface IRoomModel {
-  id: number;
+  roomId: number;
   roomUsers: IRoomUser[];
 }
 

@@ -1,32 +1,36 @@
-import { WebSocket } from 'ws';
-import { IWSMessage, TController } from '../../models/controller.model.js';
+import { WebSocket, WebSocketServer } from 'ws';
+import { IWSMessage, TWSController } from '../../models/ws-controller.model.js';
 import {
   IReqErrorData,
   IReqResultData,
   reqCommandHandler,
 } from '../../handlers/player/req-command-handler.js';
 import { websocketToPlayerStore } from '../../store/websoket-to-player-store.js';
+import { updateRoomController } from '../room/update-room-controller.js';
 
 export const REQ_COMMAND_TYPE = 'reg';
 
-export const reqWSController: TController = (webSocket: WebSocket, message: IWSMessage): void => {
+export const reqWSController: TWSController = (
+  webSocketServer: WebSocketServer,
+  webSocket: WebSocket,
+  message: IWSMessage,
+): void => {
   const data = JSON.parse(message.data);
 
   const handlerResult = reqCommandHandler(data);
 
   if (handlerResult.error) {
-    return void webSocket.send(getResultToSend(message, handlerResult));
+    return void webSocket.send(getResponse(message, handlerResult));
   }
 
   websocketToPlayerStore.add(webSocket, handlerResult.name);
 
-  // TODO: update_room
+  webSocket.send(getResponse(message, handlerResult));
+  updateRoomController(webSocketServer);
   // TODO: update_winners
-
-  webSocket.send(getResultToSend(message, handlerResult));
 };
 
-const getResultToSend = (
+const getResponse = (
   message: IWSMessage,
   handlerResult: IReqResultData | IReqErrorData,
 ): string =>

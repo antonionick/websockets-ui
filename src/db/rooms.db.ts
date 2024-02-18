@@ -7,12 +7,15 @@ export const roomsDatabase = {
     const roomId = roomsStorage.length;
 
     const room: IRoomModel = {
-      id: roomId,
+      roomId,
       roomUsers: [roomUser],
     };
 
     roomsStorage.push(room);
 
     return room;
+  },
+  getRoomsWithOnePlayer(): IRoomModel[] {
+    return roomsStorage.filter((room) => room.roomUsers.length === 1);
   },
 };
