@@ -1,5 +1,5 @@
 import { WebSocketServer, WebSocket } from 'ws';
-import { playerWSController } from '../controllers/player-ws-controller.js';
+import { wsServerController } from '../controllers/ws-server.controller.js';
 
 export const createWebsocketServer = (port: number): WebSocketServer => {
   console.log(`Start web socket server on the ${port} port!`);
@@ -11,4 +11,4 @@ export const createWebsocketServer = (port: number): WebSocketServer => {
 };
 
 const webSocketConnectionHandler = (webSocket: WebSocket): void =>
-  void webSocket.on('message', playerWSController);
+  void webSocket.on('message', wsServerController);

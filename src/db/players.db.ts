@@ -4,7 +4,8 @@ const playersStorage: IPlayerModel[] = [];
 
 export const playersDatabase = {
   doesPlayerExist(name: string): boolean {
-    return !!playersStorage.find((player) => player.name === name);
+    const index = this.getPlayerIndex(name);
+    return index !== -1;
   },
   getPlayerIndex(name: string): number {
     return playersStorage.findIndex((player) => player.name === name);
