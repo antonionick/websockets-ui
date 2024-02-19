@@ -4,9 +4,10 @@ import {
   IReqErrorData,
   IReqResultData,
   reqCommandHandler,
-} from '../../handlers/player/req-command-handler.js';
-import { websocketToPlayerStore } from '../../store/websoket-to-player-store.js';
-import { updateRoomController } from '../room/update-room-controller.js';
+} from '../../handlers/player/req-command.handler.js';
+import { websocketToPlayerStore } from '../../store/websoket-to-player.store.js';
+import { updateRoomController } from '../room/update-room.controller.js';
+import { updateWinnersController } from './update-winners.controller.js';
 
 export const REQ_COMMAND_TYPE = 'reg';
 
@@ -27,7 +28,7 @@ export const reqWSController: TWSController = (
 
   webSocket.send(getResponse(message, handlerResult));
   updateRoomController(webSocketServer);
-  // TODO: update_winners
+  updateWinnersController(webSocketServer);
 };
 
 const getResponse = (

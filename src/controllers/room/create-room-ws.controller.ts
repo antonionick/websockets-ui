@@ -1,9 +1,9 @@
 import { WebSocket, WebSocketServer } from 'ws';
 import { playersDatabase } from '../../db/players.db.js';
 import { TWSController } from '../../models/ws-controller.model.js';
-import { websocketToPlayerStore } from '../../store/websoket-to-player-store.js';
-import { createRoomCommandHandler } from '../../handlers/room/create-room-command-handler.js';
-import { updateRoomController } from './update-room-controller.js';
+import { websocketToPlayerStore } from '../../store/websoket-to-player.store.js';
+import { createRoomCommandHandler } from '../../handlers/room/create-room-command.handler.js';
+import { updateRoomController } from './update-room.controller.js';
 
 export const CREATE_ROOM_COMMAND_TYPE = 'create_room';
 

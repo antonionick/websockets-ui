@@ -15,4 +15,7 @@ export const playersDatabase = {
 
     return playersStorage.length - 1;
   },
+  getAllPlayersNames(): string[] {
+    return playersStorage.map((player) => player.name);
+  },
 };

@@ -1,10 +1,10 @@
 import { WebSocket, RawData, WebSocketServer } from 'ws';
 import { IWSMessage, TWSController } from '../models/ws-controller.model.js';
-import { REQ_COMMAND_TYPE, reqWSController } from './player/req-ws-controller.js';
+import { REQ_COMMAND_TYPE, reqWSController } from './player/req-ws.controller.js';
 import {
   CREATE_ROOM_COMMAND_TYPE,
   createRoomController,
-} from './room/create-room-ws-controller.js';
+} from './room/create-room-ws.controller.js';
 
 const commandTypeToHandlerMap = new Map<string, TWSController>([
   [REQ_COMMAND_TYPE, reqWSController],
