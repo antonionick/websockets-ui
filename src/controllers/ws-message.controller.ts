@@ -3,12 +3,17 @@ import { IWSMessage, TWSController } from '../models/ws-controller.model.js';
 import { REQ_COMMAND_TYPE, reqWSController } from './player/req-ws.controller.js';
 import {
   CREATE_ROOM_COMMAND_TYPE,
-  createRoomController,
+  createRoomWSController,
 } from './room/create-room-ws.controller.js';
+import {
+  ADD_USER_TO_ROOM_COMMAND_TYPE,
+  addUserToRoomWSController,
+} from './room/add-user-to-room-ws.controller.js';
 
 const commandTypeToHandlerMap = new Map<string, TWSController>([
   [REQ_COMMAND_TYPE, reqWSController],
-  [CREATE_ROOM_COMMAND_TYPE, createRoomController],
+  [CREATE_ROOM_COMMAND_TYPE, createRoomWSController],
+  [ADD_USER_TO_ROOM_COMMAND_TYPE, addUserToRoomWSController],
 ]);
 
 export const wsMessageControllerFabric = (wsServer: WebSocketServer) =>

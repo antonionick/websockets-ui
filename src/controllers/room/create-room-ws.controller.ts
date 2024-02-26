@@ -7,7 +7,7 @@ import { updateRoomController } from './update-room.controller.js';
 
 export const CREATE_ROOM_COMMAND_TYPE = 'create_room';
 
-export const createRoomController: TWSController = (
+export const createRoomWSController: TWSController = (
   webSocketServer: WebSocketServer,
   webSocket: WebSocket,
 ): void => {
