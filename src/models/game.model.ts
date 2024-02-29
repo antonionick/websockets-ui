@@ -1,5 +1,5 @@
 export interface IGameModel {
-  gameId: string;
+  gameId: number;
   players: IGamePlayerModel[];
 }
 
