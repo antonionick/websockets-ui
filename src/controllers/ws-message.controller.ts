@@ -9,7 +9,7 @@ import {
   ADD_USER_TO_ROOM_COMMAND_TYPE,
   addUserToRoomWSController,
 } from './room/add-user-to-room-ws.controller.js';
-import { ADD_SHIPS_COMMAND_TYPE, addShipsWSController } from './game/add-ships-ws.controller.js';
+import { ADD_SHIPS_COMMAND_TYPE, addShipsWSController } from './ships/add-ships-ws.controller.js';
 
 const commandTypeToHandlerMap = new Map<string, TWSController>([
   [REQ_COMMAND_TYPE, reqWSController],

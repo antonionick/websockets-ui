@@ -1,17 +1,17 @@
 import { IShip } from '../models/ship.model.js';
-import { IGameModel, IGamePlayerModel } from '../models/game.model.js';
-
-interface IGameDatabaseModel extends IGameModel {
-  players: IGamePlayerDatabaseModel[];
-}
-
-interface IGamePlayerDatabaseModel extends IGamePlayerModel {
-  ships: IShip[];
-}
+import {
+  IGameDatabaseModel,
+  IGameModel,
+  IGamePlayerDatabaseModel,
+  IGamePlayerModel,
+} from '../models/game.model.js';
 
 const gamesStorage: IGameDatabaseModel[] = [];
 
 export const gameDatabase = {
+  getGameById(gameId: number): IGameModel {
+    return gamesStorage.find((game) => game.gameId === gameId)!;
+  },
   createGame(playerNames: string[]): IGameModel {
     const lastGameId = gamesStorage[gamesStorage.length - 1]?.gameId;
     const gameId = (lastGameId ?? 0) + 1;
@@ -21,13 +21,17 @@ export const gameDatabase = {
       playerId: index,
     }));
 
-    return {
+    const game = {
       gameId,
       players: gamePlayers,
-    };
+    } as IGameDatabaseModel;
+
+    gamesStorage.push(game);
+
+    return game;
   },
   addShips(gameId: number, playerId: number, ships: IShip[]): void {
-    const game = gamesStorage.find((game) => game.gameId === gameId)!;
+    const game = this.getGameById(gameId)!;
     const player = game.players.find(
       (player) => player.playerId === playerId,
     ) as IGamePlayerDatabaseModel;

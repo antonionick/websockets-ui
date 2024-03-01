@@ -1,4 +1,4 @@
-import { createGameHandler } from '../../handlers/game/create-game.handler.js';
+import { createGameHandler } from '../../handlers/room/create-game.handler.js';
 import { IRoomModel } from '../../models/room.model.js';
 import { websocketToPlayerStore } from '../../store/websoket-to-player.store.js';
 
