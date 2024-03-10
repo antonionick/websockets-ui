@@ -38,4 +38,8 @@ export const gameDatabase = {
 
     player.ships = ships;
   },
+  updateCurrentPlayer(gameId: number, currentPlayer: number): void {
+    const game = this.getGameById(gameId)! as IGameDatabaseModel;
+    game.currentPlayer = currentPlayer;
+  }
 };

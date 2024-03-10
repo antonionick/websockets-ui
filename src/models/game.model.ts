@@ -12,6 +12,7 @@ export interface IGamePlayerModel {
 
 export interface IGameDatabaseModel extends IGameModel {
   players: IGamePlayerDatabaseModel[];
+  currentPlayer: number;
 }
 
 export interface IGamePlayerDatabaseModel extends IGamePlayerModel {

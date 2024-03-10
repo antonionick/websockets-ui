@@ -1,5 +1,6 @@
 import { startGameHandler } from '../../handlers/ships/start-game.handler.js';
 import { websocketToPlayerStore } from '../../store/websoket-to-player.store.js';
+import { turnController } from '../game/turn.controller.js';
 
 const START_GAME_COMMAND_TYPE = 'start_game';
 
@@ -24,4 +25,6 @@ export const startGameController = (gameId: number): void => {
 
     websocket.send(response);
   });
+
+  turnController(gameId);
 };
